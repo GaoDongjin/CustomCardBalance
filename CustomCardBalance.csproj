@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AssemblyName>CustomCardBalance</AssemblyName>
+    <RootNamespace>CustomCardBalance</RootNamespace>
+    <Sts2GameDir Condition="'$(Sts2GameDir)' == ''">$(STS2_GAME_DIR)</Sts2GameDir>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="sts2">
+      <HintPath>$(Sts2GameDir)\data_sts2_windows_x86_64\sts2.dll</HintPath>
+    </Reference>
+    <Reference Include="GodotSharp">
+      <HintPath>$(Sts2GameDir)\data_sts2_windows_x86_64\GodotSharp.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Lib.Harmony" Version="2.4.2" />
+  </ItemGroup>
+
+</Project>

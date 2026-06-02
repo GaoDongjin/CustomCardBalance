@@ -1,0 +1,12 @@
+{
+  "id": "CustomCardBalance",
+  "name": "Custom Card Balance",
+  "author": "Bruiser",
+  "description": "Configurable balance adjustments for 21 cards in Ver0.106. Press F1 from the main menu to open the settings panel.",
+  "version": "2.2.0",
+  "min_game_version": "0.106.1",
+  "has_pck": false,
+  "has_dll": true,
+  "dependencies": [],
+  "affects_gameplay": true
+}
