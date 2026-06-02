@@ -59,7 +59,7 @@ vanilla card behavior.
 
 ## Adjusted Cards
 
-The mod currently includes:
+The mod currently includes 21 independently configurable card adjustments:
 
 - Ironclad: 3 cards
 - Silent: 6 cards
@@ -68,8 +68,34 @@ The mod currently includes:
 - Necrobinder: 5 cards
 - Shared pool: 1 card
 
-See [`SPEC.md`](SPEC.md) for the complete Ver0.106 card table and the detailed
-behavior of each adjustment.
+The list contains 16 adjustments that restore Ver0.100 behavior, 3 custom
+buffs, and 2 hybrid buffs that combine selected Ver0.100 and Ver0.106 behavior.
+
+| Character | Card | Type | Adjustment |
+| --- | --- | --- | --- |
+| Ironclad | Dominate | Custom hybrid buff | Applies 1 Vulnerable. The upgrade removes Exhaust instead of applying additional Vulnerable. |
+| Ironclad | Expect a Fight | Ver0.100 revert | Removes the energy-gain lock after use. The upgrade still reduces the energy cost. |
+| Ironclad | Forgotten Ritual | Ver0.100 revert | Removes Exhaust. |
+| Silent | Acrobatics | Ver0.100 revert | Changes rarity from Uncommon to Common. |
+| Silent | Untouchable | Ver0.100 revert | Changes Block from 6/8 to 9/12. |
+| Silent | Anticipate | Ver0.100 revert | Changes temporary Dexterity from 2/3 to 3/5. |
+| Silent | Speedster | Custom hybrid buff | The upgrade grants both +1 trigger damage and Innate. |
+| Silent | Murder | Custom buff | The upgrade retains its cost reduction and increases the per-draw extra damage multiplier from 1 to 2. |
+| Silent | Wraith Form | Custom buff | Removes the Dexterity-loss effect. Grants 2 Intangible, or 3 Intangible and Retain when upgraded. |
+| Defect | Voltaic | Ver0.100 revert | Reduces energy cost from 3 to 2. |
+| Defect | Rainbow | Custom buff | Reduces energy cost from 2 to 1. |
+| Regent | Glow | Ver0.100 revert | Draws 2 cards immediately and removes the next-turn draw effect. |
+| Regent | Alignment | Ver0.100 revert | Reduces star cost from 3 to 2. |
+| Regent | Void Form | Ver0.100 revert | Removes Ethereal. The upgrade increases the effect from 2 cards to 3 cards. |
+| Regent | The Sealed Throne | Ver0.100 revert | The upgrade grants Innate instead of reducing energy cost. |
+| Necrobinder | Banshee's Cry | Ver0.100 revert | Reduces energy cost from 9 to 6. The upgrade increases damage from 33 to 39 instead of reducing cost. |
+| Necrobinder | Dirge | Ver0.100 revert | Removes Exhaust. |
+| Necrobinder | Seance | Ver0.100 revert | Reduces energy cost from 1 to 0. The upgraded card transforms the selected card into an upgraded Soul. |
+| Necrobinder | Borrowed Time | Ver0.100 revert | Costs 0. Applies 3 Doom to yourself and grants 1 energy, or 2 energy when upgraded, without increasing hand costs. |
+| Necrobinder | Defy | Ver0.100 revert | The upgrade grants +1 Block and +1 Weak instead of +3 Block. |
+| Shared pool | Production | Ver0.100 revert | The upgrade removes Exhaust instead of granting +1 energy. |
+
+See [`SPEC.md`](SPEC.md) for the complete Ver0.106 baseline table.
 
 ## Building from Source
 
