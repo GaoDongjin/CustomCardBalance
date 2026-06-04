@@ -118,6 +118,7 @@ powershell -ExecutionPolicy Bypass -File .\tests\verify-custom-card-balance-rena
 powershell -ExecutionPolicy Bypass -File .\tests\verify-custom-card-balance-expansion.ps1
 powershell -ExecutionPolicy Bypass -File .\tests\verify-hotkey-entry.ps1
 powershell -ExecutionPolicy Bypass -File .\tests\verify-settings-layout.ps1
+powershell -ExecutionPolicy Bypass -File .\tests\verify-startup-patching.ps1
 ```
 
 Create a release archive:

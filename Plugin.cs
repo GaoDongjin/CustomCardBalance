@@ -13,7 +13,7 @@ public static class Plugin
         var stopwatch = Stopwatch.StartNew();
         ModConfiguration.Load();
         var harmony = new Harmony("com.bruiser.customcardbalance");
-        harmony.PatchAll(typeof(Plugin).Assembly);
+        HarmonyPatchInstaller.Install(harmony);
         Log.Info($"[CustomCardBalance] Initialization completed in {stopwatch.ElapsedMilliseconds}ms.");
     }
 }
