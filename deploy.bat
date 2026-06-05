@@ -17,5 +17,7 @@ echo ===== Deploying to game =====
 if not exist "%GAME_MODS%" mkdir "%GAME_MODS%"
 copy /Y "%BUILD_DIR%\%PROJECT_NAME%.dll" "%GAME_MODS%\"
 copy /Y "%PROJECT_NAME%.json" "%GAME_MODS%\"
+if not exist "%GAME_MODS%\assets" mkdir "%GAME_MODS%\assets"
+copy /Y "%BUILD_DIR%\assets\*.png" "%GAME_MODS%\assets\"
 
 echo ===== Done =====

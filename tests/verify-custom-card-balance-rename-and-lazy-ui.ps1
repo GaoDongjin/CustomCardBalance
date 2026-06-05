@@ -48,7 +48,7 @@ $allSource = ($plugin, $configuration, $settingsPanel, (Read-RequiredFile 'CardP
 Assert-Contains $manifest '"id": "CustomCardBalance"' 'The manifest ID was not renamed to CustomCardBalance.'
 Assert-Contains $manifest '"name": "Custom Card Balance"' 'The public mod name was not renamed to Custom Card Balance.'
 Assert-Contains $manifest '"author": "Bruiser"' 'The manifest author was not set to Bruiser.'
-Assert-Contains $manifest '"version": "2\.2\.0"' 'The manifest version was not increased to 2.2.0.'
+Assert-Contains $manifest '"version": "2\.3\.0"' 'The manifest version was not increased to 2.3.0.'
 Assert-Contains $project '<AssemblyName>CustomCardBalance</AssemblyName>' 'The DLL assembly name was not renamed.'
 Assert-Contains $project '<RootNamespace>CustomCardBalance</RootNamespace>' 'The root namespace was not renamed.'
 Assert-Contains $allSource 'namespace CustomCardBalance;' 'The C# namespace was not renamed.'

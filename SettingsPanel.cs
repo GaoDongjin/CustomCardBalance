@@ -132,16 +132,19 @@ public partial class CardBalanceSettingsPanel : Control
 
     private static readonly IReadOnlyList<CardBalanceEntry> _entries = new[]
     {
-        new CardBalanceEntry(CardIds.Dominate, CardCategory.Ironclad, "主宰", "给予1层易伤；升级后移除消耗", "给予1层易伤。敌人身上每有一层易伤，就获得1点力量。消耗。", "给予1层易伤。敌人身上每有一层易伤，就获得1点力量。"),
-        new CardBalanceEntry(CardIds.ExpectAFight, CardCategory.Ironclad, "跃跃欲试", "移除负面影响；升级减少耗能", "你的手牌中每有一张攻击牌，就会获得1点能量。", "你的手牌中每有一张攻击牌，就会获得1点能量。"),
-        new CardBalanceEntry(CardIds.ForgottenRitual, CardCategory.Ironclad, "被遗忘的仪式", "移除消耗", "如果你在本回合消耗过卡牌，则获得3点能量。", "如果你在本回合消耗过卡牌，则获得4点能量。"),
+        new CardBalanceEntry(CardIds.ForgottenRitual, CardCategory.Ironclad, "被遗忘的仪式", "升级后移除消耗，但不增加能量", "如果你在本回合消耗过卡牌，则获得3点能量。消耗。", "如果你在本回合消耗过卡牌，则获得3点能量。"),
+        new CardBalanceEntry(CardIds.Spite, CardCategory.Ironclad, "怨恨", "伤害改为抽牌", "造成6点伤害。如果你在本回合失去过生命值，则抽1张牌。", "造成9点伤害。如果你在本回合失去过生命值，则抽1张牌。"),
         new CardBalanceEntry(CardIds.Acrobatics, CardCategory.Silent, "杂技", "稀有度：罕见 → 普通", "抽3张牌。丢弃1张牌。", "抽4张牌。丢弃1张牌。"),
-        new CardBalanceEntry(CardIds.Untouchable, CardCategory.Silent, "触不可及", "格挡：6/8 → 9/12", "奇巧。获得9点格挡。", "奇巧。获得12点格挡。"),
-        new CardBalanceEntry(CardIds.Anticipate, CardCategory.Silent, "预判", "敏捷：2/3 → 3/5", "在本回合获得3点敏捷。", "在本回合获得5点敏捷。"),
-        new CardBalanceEntry(CardIds.Speedster, CardCategory.Silent, "速行者", "升级后额外伤害+1，并获得固有", "每当你在回合中抽到牌时，对所有敌人造成2点伤害。", "固有。每当你在回合中抽到牌时，对所有敌人造成3点伤害。"),
-        new CardBalanceEntry(CardIds.Murder, CardCategory.Silent, "谋杀", "升级后额外伤害+1，且保留降费", "造成1点伤害。你在本场战斗中每抽过一张牌，此牌就额外造成1点伤害。", "造成1点伤害。你在本场战斗中每抽过一张牌，此牌就额外造成2点伤害。"),
-        new CardBalanceEntry(CardIds.WraithForm, CardCategory.Silent, "幽魂形态", "移除敏捷衰减；升级后获得保留", "获得2层无实体。", "保留。获得3层无实体。"),
+        new CardBalanceEntry(CardIds.Untouchable, CardCategory.Silent, "触不可及", "格挡：6/8 → 7/10", "奇巧。获得7点格挡。", "奇巧。获得10点格挡。"),
+        new CardBalanceEntry(CardIds.Anticipate, CardCategory.Silent, "预判", "敏捷：2/3 → 3/4", "在本回合获得3点敏捷。", "在本回合获得4点敏捷。"),
+        new CardBalanceEntry(CardIds.Speedster, CardCategory.Silent, "速行者", "升级后额外伤害+1", "每当你在回合中抽到牌时，对所有敌人造成2点伤害。", "每当你在回合中抽到牌时，对所有敌人造成3点伤害。"),
+        new CardBalanceEntry(CardIds.WraithForm, CardCategory.Silent, "幽魂形态", "升级后获得保留；负面效果削弱", "获得2层无实体。本次战斗中不能再获得敏捷。", "保留。获得3层无实体。本次战斗中不能再获得敏捷。"),
         new CardBalanceEntry(CardIds.Voltaic, CardCategory.Defect, "电流相生", "耗能：3 → 2", "生成等量于你在这场战斗中生成过的闪电充能球数量的闪电充能球。消耗。", "生成等量于你在这场战斗中生成过的闪电充能球数量的闪电充能球。"),
+        new CardBalanceEntry(CardIds.Hotfix, CardCategory.Defect, "热修复", "移除消耗；升级后集中+1", "在本回合获得2点集中。消耗。", "在本回合获得3点集中。"),
+        new CardBalanceEntry(CardIds.Defragment, CardCategory.Defect, "碎片整理", "集中+1", "获得2点集中。", "获得3点集中。"),
+        new CardBalanceEntry(CardIds.Coolant, CardCategory.Defect, "冷却剂", "格挡值+1", "在你的回合开始时，你每有一种不同的充能球，就获得3点格挡。", "在你的回合开始时，你每有一种不同的充能球，就获得4点格挡。"),
+        new CardBalanceEntry(CardIds.BiasedCognition, CardCategory.Defect, "偏差认知", "负面效果削弱", "获得4点集中。本次战斗中不能再获得集中。", "获得5点集中。本次战斗中不能再获得集中。"),
+        new CardBalanceEntry(CardIds.Hailstorm, CardCategory.Defect, "冰雹风暴", "激发充能球", "每当你激发冰霜充能球时，对所有敌人造成2点伤害。", "固有。每当你激发冰霜充能球时，对所有敌人造成2点伤害。"),
         new CardBalanceEntry(CardIds.Rainbow, CardCategory.Defect, "彩虹", "耗能：2 → 1", "生成1个闪电充能球。生成1个冰霜充能球。生成1个黑暗充能球。消耗。", "生成1个闪电充能球。生成1个冰霜充能球。生成1个黑暗充能球。"),
         new CardBalanceEntry(CardIds.Glow, CardCategory.Regent, "辉光", "抽2张牌", "获得1点星。抽2张牌。", "获得2点星。抽2张牌。"),
         new CardBalanceEntry(CardIds.Alignment, CardCategory.Regent, "星位序列", "星消耗：3 → 2", "获得2点能量。", "获得3点能量。"),
@@ -151,8 +154,10 @@ public partial class CardBalanceSettingsPanel : Control
         new CardBalanceEntry(CardIds.Dirge, CardCategory.Necrobinder, "挽歌", "移除消耗", "召唤3X次。将X张灵魂添加到你的抽牌堆中。", "召唤4X次。将X张灵魂+添加到你的抽牌堆中。"),
         new CardBalanceEntry(CardIds.Seance, CardCategory.Necrobinder, "降灵", "耗能统一为0；升级后生成灵魂+", "虚无。将你抽牌堆中的一张牌变化为灵魂。", "虚无。将你抽牌堆中的一张牌变化为灵魂+。"),
         new CardBalanceEntry(CardIds.BorrowedTime, CardCategory.Necrobinder, "预借时间", "不额外增加耗能", "给予自身3层灾厄。获得1点能量。", "给予自身3层灾厄。获得2点能量。"),
+        new CardBalanceEntry(CardIds.Debilitate, CardCategory.Necrobinder, "摧残", "降低伤害，增加效果持续时间", "造成7点伤害。在接下来的3回合内，该敌人身上的易伤与虚弱效率翻倍。", "造成9点伤害。在接下来的4回合内，该敌人身上的易伤与虚弱效率翻倍。"),
         new CardBalanceEntry(CardIds.Defy, CardCategory.Necrobinder, "违逆", "升级改为格挡+1、虚弱+1", "虚无。获得6点格挡。给予1层虚弱。", "虚无。获得7点格挡。给予2层虚弱。"),
-        new CardBalanceEntry(CardIds.Production, CardCategory.Other, "生产制造", "升级后移除消耗", "获得2点能量。消耗。", "获得2点能量。")
+        new CardBalanceEntry(CardIds.Production, CardCategory.Other, "生产制造", "升级后移除消耗", "获得2点能量。消耗。", "获得2点能量。"),
+        new CardBalanceEntry(CardIds.HiddenGem, CardCategory.Other, "未掘宝石", "随机牌获取效果", "你抽牌堆中的一张随机牌获得2层重放。", "你抽牌堆中的一张随机牌获得3层重放。")
     };
 
     private readonly Dictionary<CardCategory, Button> _tabButtons = new();
