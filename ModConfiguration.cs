@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Security.Cryptography;
+using System.Text;
 using System.Text.Json;
 using Godot;
 using MegaCrit.Sts2.Core.Logging;
@@ -9,16 +11,19 @@ namespace CustomCardBalance;
 
 public static class CardIds
 {
-    public const string Dominate = "dominate";
-    public const string ExpectAFight = "expect_a_fight";
     public const string ForgottenRitual = "forgotten_ritual";
+    public const string Spite = "spite";
     public const string Acrobatics = "acrobatics";
     public const string Untouchable = "untouchable";
     public const string Anticipate = "anticipate";
     public const string Speedster = "speedster";
-    public const string Murder = "murder";
     public const string WraithForm = "wraith_form";
     public const string Voltaic = "voltaic";
+    public const string Hotfix = "hotfix";
+    public const string Defragment = "defragment";
+    public const string Coolant = "coolant";
+    public const string BiasedCognition = "biased_cognition";
+    public const string Hailstorm = "hailstorm";
     public const string Rainbow = "rainbow";
     public const string Glow = "glow";
     public const string Alignment = "alignment";
@@ -28,21 +33,26 @@ public static class CardIds
     public const string Dirge = "dirge";
     public const string Seance = "seance";
     public const string BorrowedTime = "borrowed_time";
+    public const string Debilitate = "debilitate";
     public const string Defy = "defy";
     public const string Production = "production";
+    public const string HiddenGem = "hidden_gem";
 
     public static readonly string[] All =
     {
-        Dominate,
-        ExpectAFight,
         ForgottenRitual,
+        Spite,
         Acrobatics,
         Untouchable,
         Anticipate,
         Speedster,
-        Murder,
         WraithForm,
         Voltaic,
+        Hotfix,
+        Defragment,
+        Coolant,
+        BiasedCognition,
+        Hailstorm,
         Rainbow,
         Glow,
         Alignment,
@@ -52,8 +62,10 @@ public static class CardIds
         Dirge,
         Seance,
         BorrowedTime,
+        Debilitate,
         Defy,
-        Production
+        Production,
+        HiddenGem
     };
 }
 
@@ -140,6 +152,22 @@ public static class ModConfiguration
         var options = new JsonSerializerOptions { WriteIndented = true };
         File.WriteAllText(SettingsPath, JsonSerializer.Serialize(new CardBalanceSave { Cards = normalized }, options));
         Log.Info($"[CustomCardBalance] Saved card settings to {SettingsPath}");
+    }
+
+    public static string GetMultiplayerCompatibilityToken()
+    {
+        var builder = new StringBuilder();
+        foreach (string cardId in CardIds.All)
+        {
+            builder
+                .Append(cardId)
+                .Append('=')
+                .Append(IsEnabled(cardId) ? '1' : '0')
+                .Append(';');
+        }
+
+        byte[] hash = SHA256.HashData(Encoding.UTF8.GetBytes(builder.ToString()));
+        return BitConverter.ToString(hash, 0, 8).Replace("-", "").ToLowerInvariant();
     }
 
     private static void MigrateLegacySettingsIfNeeded()
